@@ -3,29 +3,24 @@
     {
       "host": "209.58.178.111",
       "username": "root",
-      "password": "qC5jejzYDO3",
+      "password": "pU6VmEnsQ2m",
       "env": {}
     }
   ],
 
-    "setupMongo": true,
+  "setupMongo": true,
 
-    "setupNode": true,
+  "appName": "fingersninja",
 
-    "nodeVersion": "0.10.36",
+  "app": "../source",
 
-    "setupPhantom": true,
+  "env": {
+    "PORT": 8888,
+    "ROOT_URL": "http://fingers.ninja",
+    "MAIL_URL": "smtp://postmaster@mg.fingers.ninja:0ebff4e17100c0a47e0b557ce49dbb20@smtp.mailgun.org:587/"
+  },
 
-    "enableUploadProgressBar": true,
+  "deployCheckWaitTime": 15,
 
-    "appName": "fingersninja",
-
-    "app": "../source",
-
-    "env": {
-      "PORT": 8888,
-      "ROOT_URL": "http://fingers.ninja",
-      "MAIL_URL": "smtp://postmaster@mg.fingers.ninja:0ebff4e17100c0a47e0b557ce49dbb20@smtp.mailgun.org:587/"
-    },
-    "deployCheckWaitTime": 15
+  "enableUploadProgressBar": true
 }
