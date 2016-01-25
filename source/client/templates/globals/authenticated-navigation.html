@@ -2,12 +2,12 @@
   <ul class="nav navbar-nav">
     <li class="{{currentRoute 'create-battle'}}"><a href="{{pathFor 'create-battle'}}">Create Battle</a></li>
     <li class="{{currentRoute 'join-battle'}}"><a href="{{pathFor 'join-battle'}}">Join Battle</a></li>
-    <li class="{{currentRoute 'vodkar-shop'}}"><a href="{{pathFor 'vodkar-shop'}}">Vodkar Shop</a></li>
+    <li class="{{currentRoute 'ninja-shop'}}"><a href="{{pathFor 'ninja-shop'}}">Ninja Shop</a></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <img class="img-circle" src="{{userVodkarModel currentUser._id}}" width="20px"> {{userNickname currentUser._id}} <span class="caret"></span>
+        <img class="img-circle" src="{{userNinjaModel currentUser._id}}" width="20px"> {{userNickname currentUser._id}} <span class="caret"></span>
       </a>
       <ul class="dropdown-menu" role="menu">
         <li class="user-profile">

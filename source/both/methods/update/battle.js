@@ -243,7 +243,7 @@ Meteor.methods({
         return exception;
       }
     },
-    vodkarAttack(argument) {
+    ninjaAttack(argument) {
       check(argument, Object);
       try {
         var battle = Battle.findOne(argument.battleId);

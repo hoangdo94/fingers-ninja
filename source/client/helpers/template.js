@@ -7,21 +7,21 @@ Template.registerHelper('userNickname', (userId) => {
   }
   return '';
 });
-Template.registerHelper('userVodkarModel', (userId) => {
+Template.registerHelper('userNinjaModel', (userId) => {
   var gp = GameProfile.findOne({
     userId: userId
   });
   if (gp) {
-    return VodkarModel.findOne(gp.currentModel).imageUrl;
+    return NinjaModel.findOne(gp.currentModel).imageUrl;
   }
   return '/avatars/default.png';
 });
-Template.registerHelper('userVodkarClass', (userId) => {
+Template.registerHelper('userNinjaClass', (userId) => {
   var gp = GameProfile.findOne({
     userId: userId
   });
   if (gp) {
-    return VodkarModel.findOne(gp.currentModel).title;
+    return NinjaModel.findOne(gp.currentModel).title;
   }
   return 'Unknown';
 });

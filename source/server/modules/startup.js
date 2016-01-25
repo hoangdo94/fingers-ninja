@@ -1,13 +1,13 @@
 let startup = () => {
   _setEnvironmentVariables();
   _setBrowserPolicies();
-  _generateVodkarModels();
+  _generateNinjaModels();
 };
 
 var _setEnvironmentVariables = () => Modules.server.setEnvironmentVariables();
 
 var _setBrowserPolicies = () => {};
 
-var _generateVodkarModels = () => Modules.server.generateVodkarModels();
+var _generateNinjaModels = () => Modules.server.generateNinjaModels();
 
 Modules.server.startup = startup;

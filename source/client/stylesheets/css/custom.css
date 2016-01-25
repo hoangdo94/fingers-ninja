@@ -177,7 +177,7 @@ ul.reverse > li:nth-child(odd) {
 
 /*Attack Effect*/
 
-.vodkar-model {
+.ninja-model {
   position: relative;
   animation-duration: 0.2s;
   -o-animation-duration: 0.2s;
@@ -185,7 +185,7 @@ ul.reverse > li:nth-child(odd) {
   -moz-animation-duration: 0.2s;
   -webkit-animation-duration: 0.2s;
 }
-.vodkar-model img {
+.ninja-model img {
   animation-duration: 0.2s;
   -o-animation-duration: 0.2s;
   -ms-animation-duration: 0.2s;

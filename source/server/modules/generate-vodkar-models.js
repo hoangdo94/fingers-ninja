@@ -51,14 +51,14 @@ let models = [
   }
 ];
 
-let generateVodkarModels = () => {
-  var count = VodkarModel.find().count();
+let generateNinjaModels = () => {
+  var count = NinjaModel.find().count();
   if (count < models.length) {
     for (var i=count; i< models.length; i++) {
-      VodkarModel.insert(models[i]);
+      NinjaModel.insert(models[i]);
     }
   }
 };
 
 
-Modules.server.generateVodkarModels = generateVodkarModels;
+Modules.server.generateNinjaModels = generateNinjaModels;

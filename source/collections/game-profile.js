@@ -60,7 +60,7 @@ let GameProfileSchema = new SimpleSchema({
   },
   modelsOwned: {
     type: [String],
-    label: "All owned Vodkar models.",
+    label: "All owned Ninja models.",
     defaultValue: []
   },
   currentModel: {

@@ -1,21 +1,21 @@
 /**
  * Created by hoangdo on 1/16/16.
  */
-VodkarModel = new Meteor.Collection('vodkarModel');
+NinjaModel = new Meteor.Collection('ninjaModel');
 
-VodkarModel.allow({
+NinjaModel.allow({
   insert: () => false,
   update: () => false,
   remove: () => false
 });
 
-VodkarModel.deny({
+NinjaModel.deny({
   insert: () => true,
   update: () => true,
   remove: () => true
 });
 
-let VodkarModelSchema = new SimpleSchema({
+let NinjaModelSchema = new SimpleSchema({
   "title": {
     type: String
   },
@@ -27,4 +27,4 @@ let VodkarModelSchema = new SimpleSchema({
   }
 });
 
-VodkarModel.attachSchema(VodkarModelSchema);
+NinjaModel.attachSchema(NinjaModelSchema);

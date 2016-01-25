@@ -2,8 +2,8 @@ const authenticatedRoutes = FlowRouter.group({
   name: 'authenticated'
 });
 
-authenticatedRoutes.route( '/vodkar-shop', {
-  name: 'vodkar-shop',
+authenticatedRoutes.route( '/ninja-shop', {
+  name: 'ninja-shop',
   action() {
     BlazeLayout.render( 'default', { yield: 'shop' } );
   }

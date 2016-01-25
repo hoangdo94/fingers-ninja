@@ -22,15 +22,15 @@ Template.battle.onCreated(() => {
         if (users[0].currentHp < wc0) {
           //second user attack
           wc0 = users[0].currentHp;
-          $('#vodkar-0 .attack-effect').show().addClass('animated tada');
-          $('#vodkar-0 .attack-effect').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+          $('#ninja-0 .attack-effect').show().addClass('animated tada');
+          $('#ninja-0 .attack-effect').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
             $(this).hide().removeClass('animated tada');
-            $('#vodkar-0 img').addClass('animated shake');
-            $('#vodkar-0 img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $('#ninja-0 img').addClass('animated shake');
+            $('#ninja-0 img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
               $(this).removeClass('animated shake');
               if (wc0 <= 0) {
-                $('#vodkar-0 img').addClass('animated hinge loser');
-                $('#vodkar-0 img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $('#ninja-0 img').addClass('animated hinge loser');
+                $('#ninja-0 img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                   $(this).removeClass('animated hinge loser');
                 });
               }
@@ -40,15 +40,15 @@ Template.battle.onCreated(() => {
         if (users[1].currentHp < wc1) {
           //first user attack
           wc1 = users[1].currentHp;
-          $('#vodkar-1 .attack-effect').show().addClass('animated tada');
-          $('#vodkar-1 .attack-effect').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+          $('#ninja-1 .attack-effect').show().addClass('animated tada');
+          $('#ninja-1 .attack-effect').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
             $(this).hide().removeClass('animated tada');
-            $('#vodkar-1 img').addClass('animated shake');
-            $('#vodkar-1 img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $('#ninja-1 img').addClass('animated shake');
+            $('#ninja-1 img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
               $(this).removeClass('animated shake');
               if (wc1 <= 0) {
-                $('#vodkar-1 img').addClass('animated hinge loser');
-                $('#vodkar-1 img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $('#ninja-1 img').addClass('animated hinge loser');
+                $('#ninja-1 img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                   $(this).removeClass('animated hinge loser');
                 });
               }
@@ -191,7 +191,7 @@ Template.battle.events({
           t = '';
           template.$(".txtbox").val('');
           template.$("#key").html("<span class='highlighted'>" + word.substring(0, index) + "</span>" + word.substring(index));
-          Meteor.call('vodkarAttack', {
+          Meteor.call('ninjaAttack', {
             battleId: FlowRouter.getParam('id'),
             userId: Meteor.userId(),
           }, (err) => {

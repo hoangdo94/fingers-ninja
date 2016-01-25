@@ -41,7 +41,7 @@ Template.logAndComment.helpers({
     }).nickname;
     return {
       title: b.title + ': ' + p1 + ' vs. ' + p2,
-      author: 'Vodkars Battle',
+      author: 'Ninjas Battle',
     };
   }
 });

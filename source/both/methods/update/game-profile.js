@@ -14,7 +14,7 @@ Meteor.methods({
         return exception;
       }
     },
-    buyVodkarModel(argument) {
+    buyNinjaModel(argument) {
       check(argument, Object);
       var gp = GameProfile.findOne({
         'userId': argument.userId
@@ -22,9 +22,9 @@ Meteor.methods({
       if (!gp) {
         throw new Meteor.Error('profile-not-found', 'No profiles found.');
       }
-      var model = VodkarModel.findOne(argument.modelId);
+      var model = NinjaModel.findOne(argument.modelId);
       if (!model) {
-        throw new Meteor.Error('model-not-found', 'No Vodkar models found.');
+        throw new Meteor.Error('model-not-found', 'No Ninja models found.');
       }
       if (gp.modelsOwned.indexOf(argument.modelId) !== -1) {
         throw new Meteor.Error('model-already-owned', 'Already owned.');
@@ -48,7 +48,7 @@ Meteor.methods({
         return exception;
       }
     },
-    useVodkarModel(argument) {
+    useNinjaModel(argument) {
       check(argument, Object);
       var gp = GameProfile.findOne({
         'userId': argument.userId
@@ -56,9 +56,9 @@ Meteor.methods({
       if (!gp) {
         throw new Meteor.Error('profile-not-found', 'No profiles found.');
       }
-      var model = VodkarModel.findOne(argument.modelId);
+      var model = NinjaModel.findOne(argument.modelId);
       if (!model) {
-        throw new Meteor.Error('model-not-found', 'No Vodkar models found.');
+        throw new Meteor.Error('model-not-found', 'No Ninja models found.');
       }
       if (gp.modelsOwned.indexOf(argument.modelId) === -1) {
         throw new Meteor.Error('model-already-owned', 'Not owned.');
