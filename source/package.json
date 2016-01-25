@@ -1,0 +1,10 @@
+{
+  "name": "application-name",
+  "version": "1.0.0",
+  "description": "Application description.",
+  "scripts": {
+    "start": "meteor",
+    "staging": "meteor deploy fingers-ninja.meteor.com",
+    "production": ""
+  }
+}

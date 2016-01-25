@@ -1,0 +1,20 @@
+label.error {
+  display: block;
+  margin-top: 10px;
+  font-weight: normal;
+  color: lighten( red, 20% );
+}
+.highlight
+{
+    color:green;
+    font-weight: bold; 
+}
+.underline
+{
+	text-decoration-color: green;
+	text-decoration: underline;
+}
+.highlighted
+{
+	color:blue;
+}

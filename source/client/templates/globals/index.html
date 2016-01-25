@@ -1,0 +1,75 @@
+<template name="index">  
+  <div class="jumbotron">
+    <h2>Welcome to Vodkars Battle!</h2>
+    <p><b>• Fast</b> - Realtime web app provide super fast & smooth responses</p>
+    <p><b>• Fun</b> - Take part in a typing match as a 1vs1 battle</p>
+    <p><b>• Motivative</b> - Ability to compete with other people all around the world</p>
+    <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">How to play? »</a></p> -->
+  </div>
+  <div class="row equal">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Ranking</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tbody>
+              {{#each rankings}}
+              <tr>
+                <td>
+                  <a href="/user/{{userId}}"><b>{{nickname}}</b></a> the <b>{{userVodkarClass userId}}</b>
+                </td>
+                <td>
+                  <img src="/images/coins.png" width="24px"/> {{points}}
+                </td>
+                <td>
+                  <a href="/user/{{userId}}" class="btn btn-sm btn-success pull-right">Profile</a>
+                </td>
+              </tr>
+              {{else}}
+              <tr>
+                <td colspan="2">
+                  No Data.
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Recent Battles</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tbody>
+              {{#each recentBattles}}
+              <tr>
+                <td>
+                  <a href="/battle/{{_id}}">{{title}}</a>
+                </td>
+                <td>
+                  <a href="/battle/{{_id}}" class="btn btn-sm btn-primary pull-right">Details</a>
+                </td>
+              </tr>
+              {{else}}
+              <tr>
+                <td colspan="2">
+                  No Battles.
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>

@@ -1,0 +1,27 @@
+<template name="default">
+	{{>bertAlert}}
+	{{>header}}
+	<div class="container">
+		{{#if subscribing}}
+			<div class="text-center">
+				{{> loading}}
+			</div>
+		{{else}}
+			{{#if loggingIn}}
+				<div class="text-center">
+					{{> loading}}
+				</div>
+			{{else}}
+				{{#if authenticated}}
+					{{#unless redirectAuthenticated}}
+						{{> Template.dynamic template=yield}}
+					{{/unless}}
+				{{else}}
+					{{#unless redirectPublic}}
+						{{> Template.dynamic template=yield}}
+					{{/unless}}
+				{{/if}}
+			{{/if}}
+		{{/if}}
+	</div>
+</template>
