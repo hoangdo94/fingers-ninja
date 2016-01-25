@@ -3,7 +3,6 @@ Template.userProfile.onCreated(() => {
     var subsReady = FlowRouter.subsReady();
     if (subsReady) {
       if (!Meteor.users.findOne(FlowRouter.getParam('id'))) {
-        console.log('not found');
         BlazeLayout.render( 'default', { yield: 'notFound' } );
       }
     }
@@ -23,7 +22,7 @@ Template.userProfile.helpers({
     var gp = GameProfile.findOne({userId: FlowRouter.getParam('id')});
     if (!gp) return {};
     return {
-      wpm: Math.round(60*gp.wordsCompleted/gp.timePlayed),
+      wpm: (gp.timePlayed === 0)?'N/A':Math.round(60*gp.wordsCompleted/gp.timePlayed),
       accuracy: gp.wordsCompleted/(gp.wordsCompleted + gp.wordsMissed)
     };
   }
