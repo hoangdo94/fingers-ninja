@@ -88,14 +88,23 @@
     </div>
   </div>
   <div class="row">
-    {{#if isStarted}}{{#if isJoined}} {{#unless isEnded}}
-    <div style="margin: 0px 30px;">
-      <div class="jumbotron">
-        <p id="key">{{battleInfo.battleText}}</p>
-        <input class="form-control txtbox" id="input-text" type="text">
-      </div>
-    </div>
-    {{else}} {{> logAndComment}} {{/unless}} {{else}} {{> logAndComment}} {{/if}} {{/if}}
+    {{#if isStarted}}
+      <br/>
+      {{#if isJoined}}
+        {{#unless isEnded}}
+          <div style="margin: 0px 30px;">
+            <div class="jumbotron">
+              <p id="key">{{battleInfo.battleText}}</p>
+              <input class="form-control txtbox" id="input-text" type="text">
+            </div>
+          </div>
+        {{else}}
+          {{> logAndComment}}
+        {{/unless}}
+      {{else}}
+        {{> logAndComment}}
+      {{/if}}
+    {{/if}}
   </div>
   {{else}}
   <h3>Battle is destroyed or not exist!</h3> {{/if}}

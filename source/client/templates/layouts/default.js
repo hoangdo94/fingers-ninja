@@ -28,7 +28,6 @@ Template.default.helpers({
       return handleRedirect([
         'ninja-shop',
         'create-battle',
-        'join-battle'
       ], '/login');
     }
 });

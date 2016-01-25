@@ -1,4 +1,6 @@
 Template.index.helpers({
-  recentBattles: () => Battle.find(),
-  rankings: () => GameProfile.find({}, {sort: {'points': -1}, limit: 10})
+  rankings: () => GameProfile.find({}, {sort: {'points': -1}}),
+  recentBattles: () => Battle.find({endTime: {$exists: true}}),
+  waitingBattles: () => Battle.find({startTime: {$exists: false}}),
+  inProgressBattles: () => Battle.find({startTime: {$exists: true}, endTime: {$exists: false}})
 });

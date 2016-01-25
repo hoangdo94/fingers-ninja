@@ -5,23 +5,27 @@ Meteor.publish('battle', function(options) {
   check(options, Object);
   return Battle.find(options.battleId);
 });
-Meteor.publish('joinableBattles', function() {
-  return Battle.find({
-    endTime: {
-      $exists: false
-    }
-  });
-});
-Meteor.publish('recentBattles', function(limit) {
-  check(limit, Number);
-  return Battle.find({
-    endTime: {
-      $exists: true
-    }
-  }, {
-    sort: {
-      endTime: -1
-    },
-    limit: limit
-  });
+// Meteor.publish('joinableBattles', function() {
+//   return Battle.find({
+//     endTime: {
+//       $exists: false
+//     }
+//   });
+// });
+// Meteor.publish('recentBattles', function(limit) {
+//   check(limit, Number);
+//   return Battle.find({
+//     endTime: {
+//       $exists: true
+//     }
+//   }, {
+//     sort: {
+//       endTime: -1
+//     },
+//     limit: limit
+//   });
+// });
+
+Meteor.publish('battlesMetadata', function() {
+  return Battle.find({}, { fields: { 'battleText': false, 'battleTextArr': false, 'battleLog': false }});
 });

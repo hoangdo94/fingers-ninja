@@ -306,7 +306,7 @@ Meteor.methods({
 });
 
 var calculateAndUpdateUserProfile = (argument, isLeft) => {
-    console.log(argument, isLeft);
+    // console.log(argument, isLeft);
 
     var users, player, opponent, points, accuracy, wpm;
     var playerGP, gameProfileModifier;

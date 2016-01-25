@@ -8,7 +8,7 @@ publicRoutes.route( '/', {
     BlazeLayout.render( 'default', { yield: 'index' } );
   },
   subscriptions() {
-    this.register('recentBattlesSubs', Meteor.subscribe('recentBattles', 10));
+    this.register('battlesMetadataSubs', Meteor.subscribe('battlesMetadata'));
   }
 });
 

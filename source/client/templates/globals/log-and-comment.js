@@ -41,7 +41,8 @@ Template.logAndComment.helpers({
     }).nickname;
     return {
       title: b.title + ': ' + p1 + ' vs. ' + p2,
-      author: 'Ninjas Battle',
+      author: 'Fingers Ninja',
+      description: b.title + ': ' + p1 + ' vs. ' + p2,
     };
   }
 });
