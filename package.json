@@ -1,0 +1,10 @@
+{
+  "name": "fingers-ninja",
+  "version": "1.0.0",
+  "description": "How fast your fingers are?",
+  "scripts": {
+    "start": "cd source && meteor",
+    "staging": "cd source && meteor deploy fingers-ninja.meteor.com",
+    "production": ""
+  }
+}

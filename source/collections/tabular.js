@@ -43,7 +43,7 @@ TabularTables.Leaderboard = new Tabular.Table({
     }
   }, {
     data: 'wpm()',
-    title: "Words per Minute"
+    title: "Wpm"
   }, {
     data: 'timePlayed',
     title: "Play duration",

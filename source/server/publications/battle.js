@@ -27,5 +27,32 @@ Meteor.publish('battle', function(options) {
 // });
 
 Meteor.publish('battlesMetadata', function() {
-  return Battle.find({}, { fields: { 'battleText': false, 'battleTextArr': false, 'battleLog': false }});
+  return Battle.find({}, {
+    fields: {
+      'battleText': false,
+      'battleTextArr': false,
+      'battleLog': false
+    }
+  });
+});
+
+Meteor.publish('ninjaBattles', function(params) {
+  check(params, Object);
+  return Battle.find({
+    $or: [{
+      'users.0.userId': params.userId
+    }, {
+      'users.1.userId': params.userId
+    }]
+  }, {
+    sort: {
+      startTime: -1
+    },
+    limit: params.limit,
+    fields: {
+      'battleText': false,
+      'battleTextArr': false,
+      'battleLog': false
+    }
+  });
 });

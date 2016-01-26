@@ -18,13 +18,10 @@ Template.userProfile.helpers({
     }
     return "";
   },
-  averages: () => {
-    var gp = GameProfile.findOne({userId: FlowRouter.getParam('id')});
-    if (!gp) return {};
-    return {
-      wpm: (gp.timePlayed === 0)?'N/A':Math.round(60*gp.wordsCompleted/gp.timePlayed),
-      accuracy: gp.wordsCompleted/(gp.wordsCompleted + gp.wordsMissed)
-    };
+  battles: () => Battle.find(),
+  opponentId: (battle) => {
+    if (battle.users[0].userId === FlowRouter.getParam('id')) return battle.users[1].userId;
+    return battle.users[0].userId;
   }
 });
 
