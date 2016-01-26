@@ -1,5 +1,5 @@
 Accounts.emailTemplates.resetPassword.siteName = () => "Fingers Ninja";
-Accounts.emailTemplates.resetPassword.from     = () => "Fingers Ninja <no-reply@fingers.ninja>";
+Accounts.emailTemplates.resetPassword.from     = () => "Fingers Ninja <support@fingers.ninja>";
 Accounts.emailTemplates.resetPassword.subject  = () => "[Fingers Ninja] Reset Your Password";
 
 Accounts.emailTemplates.resetPassword.text = ( user, url ) => {

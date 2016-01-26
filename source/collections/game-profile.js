@@ -69,4 +69,13 @@ let GameProfileSchema = new SimpleSchema({
   }
 });
 
+GameProfile.helpers({
+  accuracy: function (gp) {
+    return (this.wordsCompleted === 0)?0:this.wordsCompleted/(this.wordsCompleted + this.wordsMissed);
+  },
+  wpm: function() {
+    return (this.timePlayed === 0)?0:Math.round(60*this.wordsCompleted/this.timePlayed);
+  }
+});
+
 GameProfile.attachSchema(GameProfileSchema);
