@@ -5,6 +5,6 @@
   "scripts": {
     "start": "cd source && meteor",
     "staging": "cd source && meteor deploy fingers-ninja.meteor.com",
-    "production": ""
+    "production": "cd deploy && mupx deploy"
   }
 }

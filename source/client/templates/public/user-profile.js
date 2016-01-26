@@ -22,7 +22,13 @@ Template.userProfile.helpers({
   opponentId: (battle) => {
     if (battle.users[0].userId === FlowRouter.getParam('id')) return battle.users[1].userId;
     return battle.users[0].userId;
-  }
+  },
+  battleResult: (battle) => {
+    if (!battle.winnerId) return '<span style="color:gray"><b>IN PROGRESS...</b></span>';
+    if (battle.winnerId === FlowRouter.getParam('id')) return '<span style="color:green"><b>WON</b></span>';
+    return '<span style="color:red"><b>LOST</b></span>';
+  },
+  haveMoreBattles: () => true
 });
 
 Template.userProfile.events({

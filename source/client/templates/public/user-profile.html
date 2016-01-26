@@ -44,14 +44,34 @@
       </div>
     </div>
     <div class="col-md-8 col-sm-6">
-      {{#each battles}}
-      <div class="well">
+      <div class="row">
+        <input type="text" class="form-control" placeholder="Filter by opponent...">
+        <br />
       </div>
-      {{else}}
-      <div class="well">
-        {{userNickname gameProfile._id}} has not joined any battles.
+      <div class="row">
+        {{#each battles}}
+        <div class="well">
+          <p>
+            <span><b><i class="fa fa-cutlery"></i> <a href="/battle/{{_id}}">{{title}}</a></b></span>
+            <span class="pull-right text-muted"><i class="fa fa-clock-o"></i> <i>{{beatifyTime startTime}}</i></span>
+          </p>
+          <p>
+            <span>Versus <a href="/user/{{opponentId this}}">{{userNickname (opponentId this)}}</a> the {{userNinjaClass (opponentId this)}}</span>
+            <span class="pull-right">{{{battleResult this}}}</span>
+          </p>
+        </div>
+        {{else}}
+        <div class="well">
+          {{userNickname gameProfile._id}} has not joined any battles.
+        </div>
+        {{/each}}
       </div>
-      {{/each}}
+      {{#if haveMoreBattles}}
+      <div class="row">
+        <button class="btn btn-block btn-info">More...</button>
+        <br/>
+      </div>
+      {{/if}}
     </div>
   </div>
 </template>

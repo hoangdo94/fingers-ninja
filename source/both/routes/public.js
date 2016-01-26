@@ -8,7 +8,7 @@ publicRoutes.route( '/', {
     BlazeLayout.render( 'default', { yield: 'index' } );
   },
   subscriptions() {
-    this.register('battlesMetadataSubs', Meteor.subscribe('battlesMetadata', {}));
+    this.register('battlesMetadataSubs', Meteor.subscribe('battlesMetadata'));
   }
 });
 
@@ -47,7 +47,7 @@ publicRoutes.route( '/user/:id' , {
   },
   subscriptions(params) {
     this.register('userProfileSubs', Meteor.subscribe('userProfile', {userId: params.id}));
-    this.register('ninjaBattles', Meteor.subscribe('battlesMetadata', {userId: params.id, limit: 10}));
+    this.register('ninjaBattlesSubs', Meteor.subscribe('ninjaBattles', {userId: params.id, limit: 5}));
   }
 });
 

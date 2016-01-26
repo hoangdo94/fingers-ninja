@@ -50,7 +50,6 @@ Meteor.publish('ninjaBattles', function(params) {
     },
     limit: params.limit,
     fields: {
-      'battleText': false,
       'battleTextArr': false,
       'battleLog': false
     }
