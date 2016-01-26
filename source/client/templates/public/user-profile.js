@@ -28,7 +28,16 @@ Template.userProfile.helpers({
     if (battle.winnerId === FlowRouter.getParam('id')) return '<span style="color:green"><b>WON</b></span>';
     return '<span style="color:red"><b>LOST</b></span>';
   },
-  haveMoreBattles: () => true
+  haveMoreBattles: () => true,
+  shareData: () => {
+    var gp = GameProfile.findOne({userId: FlowRouter.getParam('id')});
+    if (gp) return {
+      title: gp.nickname + '\'s profile',
+      author: 'Fingers Ninja',
+      description: gp.nickname + '\'s profile'
+    };
+    return {};
+  }
 });
 
 Template.userProfile.events({

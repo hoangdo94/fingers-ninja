@@ -20,7 +20,7 @@
           <i class="fa fa-user"></i> {{userNinjaClass userInfo._id}}
         </p>
         <p>
-          <i class="fa fa-money"></i> {{gameProfile.points}}
+          <i class="fa fa-usd"></i> {{gameProfile.points}}
         </p>
       </div>
       <div class="well">
@@ -41,6 +41,9 @@
         <p><i class="fa fa-trophy"></i> Winrate: <b>{{showPercentage gameProfile.winrate}}</b></p>
         <p><i class="fa fa-trophy"></i> Words per Minute: <b>{{gameProfile.wpm}}</b></p>
         <p><i class="fa fa-trophy"></i> Accuracy: <b>{{showPercentage gameProfile.accuracy}}</b></p>
+      </div>
+      <div class="text-center">
+        {{>shareit shareData}}
       </div>
     </div>
     <div class="col-md-8 col-sm-6">
