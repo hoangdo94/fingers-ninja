@@ -22,6 +22,6 @@ authenticatedRoutes.route( '/join-battle', {
     BlazeLayout.render( 'default', { yield: 'joinBattle' } );
   },
   subscriptions() {
-    this.register('joinableBattlesSubs', Meteor.subscribe('joinableBattles'));
+    this.register('joinableBattlesSubs', GlobalSubs.subscribe('joinableBattles'));
   }
 });

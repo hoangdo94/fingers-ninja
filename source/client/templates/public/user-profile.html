@@ -53,12 +53,12 @@
     </div>
     <div class="col-md-8 col-sm-6">
       <div class="row">
-        <input type="text" class="form-control" placeholder="Filter by opponent...">
+        <input type="text" class="form-control filter-opponent" placeholder="Filter by opponent...">
         <br />
       </div>
       <div class="row">
         {{#each battles}}
-        <div class="well">
+        <div class="well battle-item" data-opponent="{{userNickname (opponentId this)}}">
           <p>
             <span><b><i class="fa fa-cutlery"></i> <a href="/battle/{{_id}}">{{title}}</a></b></span>
             <span class="pull-right text-muted"><i class="fa fa-clock-o"></i> <i>{{beatifyTime startTime}}</i></span>
@@ -70,13 +70,13 @@
         </div>
         {{else}}
         <div class="well">
-          {{userNickname gameProfile._id}} has not joined any battles.
+          No battles.
         </div>
         {{/each}}
       </div>
-      {{#if haveMoreBattles}}
+      {{#if hasMoreBattles battles}}
       <div class="row">
-        <button class="btn btn-block btn-info">More...</button>
+        <button class="btn btn-block btn-info btn-more">More...</button>
         <br/>
       </div>
       {{/if}}

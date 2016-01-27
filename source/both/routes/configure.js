@@ -4,6 +4,6 @@ FlowRouter.notFound = {
   }
 };
 FlowRouter.subscriptions = function() {
-  this.register('usersGameProfileSubs', Meteor.subscribe('usersGameProfile'));
-  this.register('ninjaModelsSubs', Meteor.subscribe('ninjaModels'));
+  this.register('usersGameProfileSubs', GlobalSubs.subscribe('usersGameProfile'));
+  this.register('ninjaModelsSubs', GlobalSubs.subscribe('ninjaModels'));
 };

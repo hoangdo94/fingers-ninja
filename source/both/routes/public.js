@@ -8,7 +8,7 @@ publicRoutes.route( '/', {
     BlazeLayout.render( 'default', { yield: 'index' } );
   },
   subscriptions() {
-    this.register('battlesMetadataSubs', Meteor.subscribe('battlesMetadata'));
+    this.register('battlesMetadataSubs', GlobalSubs.subscribe('battlesMetadata'));
   }
 });
 
@@ -46,8 +46,8 @@ publicRoutes.route( '/user/:id' , {
     BlazeLayout.render( 'default', { yield: 'userProfile', userId: params.id } );
   },
   subscriptions(params) {
-    this.register('userProfileSubs', Meteor.subscribe('userProfile', {userId: params.id}));
-    this.register('ninjaBattlesSubs', Meteor.subscribe('ninjaBattles', {userId: params.id, limit: 5}));
+    this.register('userProfileSubs', GlobalSubs.subscribe('userProfile', {userId: params.id}));
+    // this.register('ninjaBattlesSubs', GlobalSubs.subscribe('ninjaBattles', {userId: params.id, limit: 5}));
   }
 });
 
@@ -57,7 +57,7 @@ publicRoutes.route( '/battle/:id' , {
     BlazeLayout.render( 'default', { yield: 'battle', battleId: params.id } );
   },
   subscriptions(params) {
-    this.register('battleSubs', Meteor.subscribe('battle', {battleId: params.id}));
+    this.register('battleSubs', GlobalSubs.subscribe('battle', {battleId: params.id}));
   },
   triggersExit: [(context) => {
     Meteor.call('leaveBattle', {

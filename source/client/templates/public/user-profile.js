@@ -1,4 +1,17 @@
 Template.userProfile.onCreated(() => {
+  //battles count
+  var userId = FlowRouter.getParam('id');
+  Meteor.call('userBattlesCount', {userId: userId}, function(err,c) {
+    Session.set(userId + '_battlesCount', c);
+  });
+  //battles limit
+  var limit = Session.get(userId + '_battlesLimit');
+  if (!limit) {
+    limit = 5;
+    Session.set(userId + '_battlesLimit', limit);
+  }
+  ProfileBattlesSubs.subscribe('ninjaBattles', {userId: userId, limit: limit});
+  //Subs
   Template.instance().autorun(() => {
     var subsReady = FlowRouter.subsReady();
     if (subsReady) {
@@ -18,7 +31,15 @@ Template.userProfile.helpers({
     }
     return false;
   },
-  battles: () => Battle.find(),
+  battles: () => Battle.find({
+    $or: [{
+      'users.0.userId': FlowRouter.getParam('id')
+    }, {
+      'users.1.userId': FlowRouter.getParam('id')
+    }]
+  }, {
+    sort: {startTime: -1}
+  }),
   opponentId: (battle) => {
     if (battle.users[0].userId === FlowRouter.getParam('id')) return battle.users[1].userId;
     return battle.users[0].userId;
@@ -28,7 +49,11 @@ Template.userProfile.helpers({
     if (battle.winnerId === FlowRouter.getParam('id')) return '<span style="color:green"><b>WON</b></span>';
     return '<span style="color:red"><b>LOST</b></span>';
   },
-  haveMoreBattles: () => true,
+  hasMoreBattles: (battles) => {
+    var userId = FlowRouter.getParam('id');
+    var total = Session.get(userId + '_battlesCount');
+    return (battles.count() < total);
+  },
   shareData: () => {
     var gp = GameProfile.findOne({userId: FlowRouter.getParam('id')});
     if (gp) return {
@@ -57,5 +82,33 @@ Template.userProfile.events({
       }
       Bert.alert('Successfully updated user nickname.', 'success', 'growl-top-right');
     });
+  },
+  'input .filter-opponent': (e) => {
+    var t = $(e.target).val().toLowerCase();
+    if (!t) {
+      $('.battle-item').fadeIn();
+    } else {
+      $('.battle-item').each(function() {
+        var op = $(this).attr('data-opponent').toLowerCase();
+        if (op.indexOf(t) !== - 1) {
+          $(this).fadeIn();
+        } else {
+          $(this).fadeOut();
+        }
+      });
+    }
+  },
+  'click .btn-more': (e) => {
+    var userId = FlowRouter.getParam('id');
+    var sessionParam = userId + '_battlesLimit';
+    var currentLimit = Session.get(sessionParam);
+    Session.set(sessionParam, currentLimit + 5);
+    ProfileBattlesSubs.subscribe('ninjaBattles', {userId: userId, limit: currentLimit + 5});
+    $('.filter-opponent').val('');
+    $('.battle-item').show();
   }
+});
+
+Template.userProfile.onRendered(() => {
+
 });
