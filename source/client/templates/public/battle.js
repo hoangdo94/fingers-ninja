@@ -9,8 +9,8 @@ Template.battle.onCreated(() => {
   var test = test;
 
   Template.instance().autorun(function() {
-    if (Battle.findOne()) {
-      var battle = Battle.findOne();
+    if (Battle.findOne(FlowRouter.getParam('id'))) {
+      var battle = Battle.findOne(FlowRouter.getParam('id'));
       var startTime = battle.startTime;
       var endTime = battle.endTime;
       //play attack animation and focus on text input
@@ -89,10 +89,10 @@ Template.battle.onCreated(() => {
 });
 
 Template.battle.helpers({
-  battleInfo: () => Battle.findOne(),
-  isCreator: () => Meteor.userId() === Battle.findOne().creatorId,
+  battleInfo: () => Battle.findOne(FlowRouter.getParam('id')),
+  isCreator: () => Meteor.userId() === Battle.findOne(FlowRouter.getParam('id')).creatorId,
   isJoined: () => {
-    let b = Battle.findOne();
+    let b = Battle.findOne(FlowRouter.getParam('id'));
     if (b && b.users) {
       let userId = Meteor.userId();
       for (let i = 0; i < b.users.length; i++) {
@@ -105,21 +105,21 @@ Template.battle.helpers({
     return false;
   },
   isReady: () => {
-    let b = Battle.findOne();
+    let b = Battle.findOne(FlowRouter.getParam('id'));
     if (b && b.users) {
       return b.users.length === 2;
     }
     return false;
   },
   isStarted: () => {
-    let b = Battle.findOne();
+    let b = Battle.findOne(FlowRouter.getParam('id'));
     if (b) {
       return !!b.startTime;
     }
     return false;
   },
   isEnded: () => {
-    let b = Battle.findOne();
+    let b = Battle.findOne(FlowRouter.getParam('id'));
     if (b) {
       return !!b.endTime;
     }
