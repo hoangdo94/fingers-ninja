@@ -10,6 +10,10 @@
         </div>
         <div class="card-info">
           <span class="card-title">{{gameProfile.nickname}}</span>
+          {{#if (canChangeNickname gameProfile.userId)}}
+            &nbsp;<a id="change-nickname" style="cursor:pointer;"><i class="fa fa-pencil fa-lg"></i></a>
+          {{/if}}
+
         </div>
       </div>
       <div class="well">
@@ -44,6 +48,7 @@
       </div>
       <div class="text-center">
         {{>shareit shareData}}
+        <br/>
       </div>
     </div>
     <div class="col-md-8 col-sm-6">

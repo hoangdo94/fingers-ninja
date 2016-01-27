@@ -12,11 +12,11 @@ Template.userProfile.onCreated(() => {
 Template.userProfile.helpers({
   userInfo: () => Meteor.users.findOne(FlowRouter.getParam('id')),
   gameProfile: () => GameProfile.findOne({userId: FlowRouter.getParam('id')}),
-  isDisabled: (userId) => {
-    if (userId !== Meteor.userId()){
-      return "disabled";
+  canChangeNickname: (userId) => {
+    if (userId === Meteor.userId()){
+      return true;
     }
-    return "";
+    return false;
   },
   battles: () => Battle.find(),
   opponentId: (battle) => {
@@ -45,8 +45,8 @@ Template.userProfile.events({
     $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
     $(e.currentTarget).removeClass("btn-default").addClass("btn-primary");
   },
-  'blur #input-user-nickname': (e) => {
-    var nickname = $(e.currentTarget).val();
+  'click #change-nickname': (e) => {
+    var nickname = prompt('New nickname');
     Meteor.call('updateUserNickname', {
       userId: Meteor.userId(),
       nickname: nickname

@@ -17,7 +17,7 @@
   "env": {
     "PORT": 8888,
     "ROOT_URL": "http://fingers.ninja",
-    "MAIL_URL": "smtp://postmaster@mg.fingers.ninja:0ebff4e17100c0a47e0b557ce49dbb20@smtp.mailgun.org:587/"
+    "MAIL_URL": "smtp://postmaster@fingers.ninja:4c0298035ffeb433877117f701b41d1c@smtp.mailgun.org:587/"
   },
 
   "deployCheckWaitTime": 15,
